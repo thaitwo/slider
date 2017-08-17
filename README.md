@@ -1,9 +1,9 @@
-# carousel
+# slider
 A full-width carousel with options for arrow navigation, breadcrumb navigation, and autoplay.
 
 #### Demo
 
-[https://thaitwo.github.io/carousel](https://thaitwo.github.io/carousel/)
+[https://thaitwo.github.io/slider](https://thaitwo.github.io/slider/)
 
 ## Implementation
 
