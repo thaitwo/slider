@@ -1,12 +1,84 @@
+@keyframes slideNext {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes slidePrev {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes slideActiveLeft {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes slideActiveRight {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
+
 .carousel {
   height: 450px;
   overflow: hidden;
   position: relative;
   text-align: center;
-  width: 100%;
+  width: 80%;
+  margin: auto;
 
-  img {
+  .slide {
+    background-position: center center;
+    height: 100%;
+    position: absolute;
     width: 100%;
+
+    &.active {
+      z-index: 2;
+
+      &.left {
+        animation-name: slideActiveLeft;
+        animation-duration: 1s;
+      }
+
+      &.right {
+        animation-name: slideActiveRight;
+        animation-duration: 1s;
+      }
+    }
+
+    &.next {
+      left: 100%;
+      z-index: 2;
+      animation-name: slideNext;
+      animation-duration: 1s;
+    }
+
+    &.prev {
+      left: -100%;
+      z-index: 2;
+      animation-name: slidePrev;
+      animation-duration: 1s;
+    }
+  }
+
+  .slide-left {
+    transform: translateX(-100%);
   }
 
   .carousel-viewer {
@@ -16,8 +88,7 @@
     height: 100%;
     position: absolute;
     z-index: 4;
-    // transition: background-image .4s ease-in-out;
-    transition: all 2s;
+    // transition: all 2s;
 
     &.carousel-viewer-next {
       right: -100%;
@@ -25,8 +96,12 @@
   }
 
   .carousel-arrow {
+    background: none;
+    border: none;
     color: white;
     opacity: .3;
+    outline: none;
+    padding: 0;
     position: absolute;
     text-shadow: 0 2px 4px rgba(0,0,0,.4);
     top: 42%;
@@ -55,7 +130,7 @@
 }
 
 .carousel-breadcrumb {
-  bottom: 10px;
+  bottom: 20px;
   padding: 0;
   position: absolute;
   width: 100%;
